@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Axios from "axios";
 import { useNavigate,useParams } from 'react-router-dom';
 import { Button, TextField, Typography } from '@mui/material';
-const EditData = () => {
+const UpdateData = () => {
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
     const [completed,setCompleted]=useState("")
@@ -38,7 +38,7 @@ const EditData = () => {
   return (
     <div className='form'>
     <form onSubmit={updateData}>
-    <Typography variant="h5" >Edit your list</Typography>
+    <Typography variant="h5" >Update your list</Typography>
     <TextField variant="outlined" fullWidth placeholder="title"
     value={title}
     onChange={(e)=>setTitle(e.target.value)}
@@ -54,7 +54,7 @@ const EditData = () => {
         onChange={(e)=>setCompleted(e.target.value)}
         ></TextField><br></br>
     <div className='helper'></div>
-    <Button variant="outlined" type="submit">Edit</Button>
+    <Button variant="outlined" type="submit">Update</Button>
     </form>
     
 </div>
@@ -62,4 +62,4 @@ const EditData = () => {
   )
 }
 
-export default EditData
+export default UpdateData

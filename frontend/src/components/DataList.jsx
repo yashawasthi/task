@@ -49,7 +49,7 @@ const DataList = () => {
               <TableCell align="right">
                   <div></div>
               <Link to={`edit/${data._id}`}>
-                  <Button variant="outlined" color="secondary" >Edit</Button>
+                  <Button variant="outlined" color="secondary" >Update</Button>
               </Link>
               <div className="btn_divide"></div>
               <Button variant="outlined" color="secondary" onClick={()=>deleteData(data._id)}>Delete</Button>     
