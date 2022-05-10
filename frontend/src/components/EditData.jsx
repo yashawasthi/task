@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Axios from "axios";
 import { useNavigate,useParams } from 'react-router-dom';
+import { Button, TextField, Typography } from '@mui/material';
 const EditData = () => {
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
@@ -32,20 +33,26 @@ const EditData = () => {
      }
 
   return (
-    <div>
-        <form onSubmit={updateData}>
-        <input placeholder="title"
-        value={title}
-        onChange={(e)=>setTitle(e.target.value)}
-        ></input>
-        <input placeholder="content"
-        value={content}
-        onChange={(e)=>setContent(e.target.value)}
-        ></input>
-        <button type="submit">Edit</button>
-        </form>
-        
-    </div>
+    <div className='form'>
+    <form onSubmit={updateData}>
+    <Typography variant="h5" >Edit your list</Typography>
+    <TextField variant="outlined" fullWidth placeholder="title"
+    value={title}
+    onChange={(e)=>setTitle(e.target.value)}
+    ></TextField><br></br>
+    <div className='helper'></div>
+    <TextField variant="outlined" fullWidth placeholder="content"
+    value={content}
+    onChange={(e)=>setContent(e.target.value)}
+    ></TextField>
+    <br></br>
+    <div className='helper'></div>
+    <div className='helper'></div>
+    <Button variant="outlined" type="submit">Edit</Button>
+    </form>
+    
+</div>
+    
   )
 }
 

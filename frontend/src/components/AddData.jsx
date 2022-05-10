@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { Button, TextField, Typography } from '@mui/material';
 const AddData = () => {
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
@@ -19,17 +20,22 @@ const AddData = () => {
      }
 
   return (
-    <div>
+    <div className='form'>
+        <Typography variant="h4" >Add new Item</Typography>
         <form onSubmit={saveData}>
-        <input placeholder="title"
+        <TextField variant="outlined" fullWidth placeholder="title"
         value={title}
         onChange={(e)=>setTitle(e.target.value)}
-        ></input>
-        <input placeholder="content"
+        ></TextField><br></br>
+        <div className='helper'></div>
+        <TextField variant="outlined" fullWidth placeholder="content"
         value={content}
         onChange={(e)=>setContent(e.target.value)}
-        ></input>
-        <button type="submit">Submit</button>
+        ></TextField>
+        <br></br>
+        <div className='helper'></div>
+        <div className='helper'></div>
+        <Button variant="outlined" type="submit">Add</Button>
         </form>
         
     </div>

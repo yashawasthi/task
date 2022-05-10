@@ -1,11 +1,12 @@
 import React from 'react'
 import { Button,Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
     <div className='navbar'>
         <div className='area'>
-        <Typography variant="h3" >To-Do-List</Typography>
-        <Button className="btn" variant='outlined' color="secondary" >Add List</Button>
+        <Link to="/"><Typography variant="h3" >To-Do-List</Typography></Link>
+        <Link to="add"><Button className="btn" variant='contained' color="primary" >Add New Item</Button></Link> 
         </div>
     </div>
   )

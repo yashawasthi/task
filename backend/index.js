@@ -7,7 +7,7 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 app.use(DataRoute)
-mongoose.connect("mongodb://localhost:27017/todolist",
+mongoose.connect("mongodb+srv://todoadmin:crc8X5B17gjDpjpt@todocluster.khska.mongodb.net/todolistDatabase",
  {
      useNewUrlParser: true,
      useUnifiedTopology:true

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Axios from "axios";
 import { Link } from "react-router-dom"
+import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper, Button} from '@mui/material';
+
+  
 const DataList = () => {
     const [datas,setDatas]=useState([]);
 
@@ -22,32 +25,44 @@ const DataList = () => {
         }
     }
   return (
-    <div>
-        <Link to="add">Add New</Link>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-
-            
-
-                
-                {datas.map((data,index)=>(
-                                <tr key={data._id}>
-                    <td>{index +1 }</td>
-                    <td>{data.title}</td>
-                    <td>{data.content}</td>
-                    <td>
-                        <Link to={`edit/${data._id}`}>Edit</Link>
-                        <button onClick={()=>deleteData(data._id)}>Delete</button>
-                        </td>
-                        </tr>
-                ))}
-        </table>
+    <div className="table">
+        <TableContainer component={Paper}>
+      <Table aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>No.</TableCell>
+            <TableCell align="right">Title</TableCell>
+            <TableCell align="right">Content</TableCell>
+            <TableCell align="right">Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {datas.map((data,index) => (
+            <TableRow key={data._id}>
+              <TableCell component="th" scope="row">
+                {index+1}
+              </TableCell>
+              <TableCell align="right">{data.title}</TableCell>
+              <TableCell align="right">{data.content}</TableCell>
+              <TableCell align="right">
+                  <div></div>
+              <Link to={`edit/${data._id}`}>
+                  <Button variant="outlined" color="secondary" >Edit</Button>
+              </Link>
+              <div className="btn_divide"></div>
+              <Button variant="outlined" color="secondary" onClick={()=>deleteData(data._id)}>Delete</Button>     
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
     </div>
   )
 }
 
 export default DataList
+
+
+
+
