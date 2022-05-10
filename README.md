@@ -5,11 +5,13 @@ Commands to run :
 
 While in backend folder:
 npm i
+
 nodemon index.js
 
 
 While in frontend folder:
 
 npm i
+
 npm start
 
