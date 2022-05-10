@@ -5,6 +5,7 @@ import { Button, TextField, Typography } from '@mui/material';
 const EditData = () => {
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
+    const [completed,setCompleted]=useState("")
     const navigate=useNavigate();
     const {id}=useParams()
 
@@ -17,6 +18,7 @@ const EditData = () => {
         const response=await Axios.get(`http://localhost:5000/datas/${id}`);
         setTitle(response.data.title)
         setContent(response.data.content)
+        setCompleted(response.data.completed)
     };
 
     const updateData=async(e)=>{
@@ -25,6 +27,7 @@ const EditData = () => {
             await Axios.patch(`http://localhost:5000/datas/${id}`,{
                  title,
                  content,
+                 completed
             });
             navigate("/")
         } catch (error) {
@@ -46,7 +49,10 @@ const EditData = () => {
     onChange={(e)=>setContent(e.target.value)}
     ></TextField>
     <br></br>
-    <div className='helper'></div>
+    <TextField variant="outlined" fullWidth placeholder="yes/no"
+        value={completed}
+        onChange={(e)=>setCompleted(e.target.value)}
+        ></TextField><br></br>
     <div className='helper'></div>
     <Button variant="outlined" type="submit">Edit</Button>
     </form>

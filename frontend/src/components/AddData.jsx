@@ -5,6 +5,7 @@ import { Button, TextField, Typography } from '@mui/material';
 const AddData = () => {
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
+    const [completed,setCompleted]=useState("")
     const navigate=useNavigate();
     const saveData=async(e)=>{
         e.preventDefault();   
@@ -12,6 +13,7 @@ const AddData = () => {
             await Axios.post("http://localhost:5000/datas",{
                  title,
                  content,
+                 completed
             });
             navigate("/")
         } catch (error) {
@@ -33,7 +35,10 @@ const AddData = () => {
         onChange={(e)=>setContent(e.target.value)}
         ></TextField>
         <br></br>
-        <div className='helper'></div>
+        <TextField variant="outlined" fullWidth placeholder="yes/no"
+        value={completed}
+        onChange={(e)=>setCompleted(e.target.value)}
+        ></TextField><br></br>
         <div className='helper'></div>
         <Button variant="outlined" type="submit">Add</Button>
         </form>

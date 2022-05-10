@@ -9,6 +9,10 @@ const Data=mongoose.Schema({
         type:String,
         required:true
     },
+    completed:{
+        type:String,
+        required:true
+    }
 });
 
 export default mongoose.model("Data",Data)

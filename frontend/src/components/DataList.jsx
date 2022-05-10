@@ -33,6 +33,7 @@ const DataList = () => {
             <TableCell>No.</TableCell>
             <TableCell align="right">Title</TableCell>
             <TableCell align="right">Content</TableCell>
+            <TableCell align="right">Completed</TableCell>
             <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -44,6 +45,7 @@ const DataList = () => {
               </TableCell>
               <TableCell align="right">{data.title}</TableCell>
               <TableCell align="right">{data.content}</TableCell>
+              <TableCell align="right">{data.completed}</TableCell>
               <TableCell align="right">
                   <div></div>
               <Link to={`edit/${data._id}`}>
